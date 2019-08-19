@@ -21,6 +21,20 @@
       ]
     },
 
+    watch: {
+      // todos: function() {
+      //   localStorage.setItem("todos", JSON.stringify(this.todos));
+      //   alert("Data saved!");
+      // }
+      todos: {
+        todos: function() {
+          localStorage.setItem("todos", JSON.stringify(this.todos));
+          alert("Data saved!");
+        },
+        deep: true
+      }
+    },
+
     methods: {
       addItem: function() {
         var item = {
@@ -41,19 +55,12 @@
         if (!confirm("delete finished?")) {
           return;
         }
-        // this.todos = this.todos.filter(function(todo) {
-        //   return !todo.isDone;
-        // });
         this.todos = this.remaining;
       }
     },
 
     computed: {
       remaining: function() {
-        // var item = this.todos.filter(function(todo) {
-        //   return !todo.isDone;
-        // });
-        // return item.length;
         return this.todos.filter(function(todo) {
           return !todo.isDone;
         });
