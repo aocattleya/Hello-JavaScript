@@ -10,9 +10,12 @@
     <div id="app" class="container">
       <h1>My Todos</h1>
       <ul>
-        <li v-for="todo in todos">{{ todo }}</li>
+        <li v-for="(todo, index) in todos">
+          {{ todo.title }}
+          <span @click="deleteItem(index)" class="command">[×]</span>
+        </li>
       </ul>
-      <form v-on:submit.prevent="addItem">
+      <form @submit.prevent="addItem">
         <input type="text" v-model="newItem" />
         <input type="submit" value="Add" />
       </form>
