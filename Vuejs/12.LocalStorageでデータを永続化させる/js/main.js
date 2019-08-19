@@ -27,7 +27,7 @@
       //   alert("Data saved!");
       // }
       todos: {
-        todos: function() {
+        handler: function() {
           localStorage.setItem("todos", JSON.stringify(this.todos));
           alert("Data saved!");
         },
